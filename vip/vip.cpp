@@ -125,7 +125,7 @@ dns:
   - "+.battlenet.com.cn"
 
 proxies:
-  - {name: mr.loby.ml3, server: 142.93.168.188, port: 21612, type: ss, cipher: chacha20-ietf-poly1305, password: zUOC2CcSPiEX}    
+  - {name: mr.loby.ml3, server: 142.93.168.188, port: 21612, type: ss, udp: true, cipher: chacha20-ietf-poly1305, password: zUOC2CcSPiEX}    
 proxy-groups:
   - name: mrloby
     type: url-test
@@ -138,5 +138,5 @@ rules:
   - DOMAIN,mgl.lobby.igamecj.com,mrloby
   - DOMAIN,pay.igamecj.com,mrloby
   - DOMAIN,graph.facebook.com,mrloby
-  - DOMAIN,sg.tdatamaster.com ,mrloby
+  - DOMAIN,euspeed.igamecj.com,mrloby
   - MATCH,DIRECT  
