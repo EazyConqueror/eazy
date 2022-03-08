@@ -139,4 +139,16 @@ rules:
   - DOMAIN,pay.igamecj.com,mrloby
   - DOMAIN,graph.facebook.com,mrloby
   - DOMAIN,euspeed.igamecj.com,mrloby
+  - DOMAIN,pay.igamecj.com,mrloby
+  - DOMAIN,sg.tdatamaster.com ,mrloby
+  - DOMAIN,meping.igamecj.com,mrloby
+  - DOMAIN,2007-shadow.igamecj.com,mrloby
+  - DOMAIN,2006-shadow.igamecj.com,mrloby
+  - DOMAIN,2008-shadow.igamecj.com,mrloby
+  - DOMAIN,2005-shadow.igamecj.com,mrloby
+  - DOMAIN,5004-shadow.igamecj.com,mrloby
+  - DOMAIN,me-du.shadow.igamecj.com,mrloby
+  - DOMAIN,eu-mo.shadow.igamecj.com,mrloby
+  - DOMAIN,eu-fra.shadow.igamecj.com,mrloby
+  - DOMAIN,eu-mo.shadow.igamecj.com,mrloby
   - MATCH,DIRECT  
