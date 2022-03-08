@@ -1,7 +1,18 @@
+---
+port: 7890
+socks-port: 7891
+redir-port: 7892
+mixed-port: 7893
+allow-lan: true
+autorestart: true
+mode: rule
+log-level: info
+ipv6: false
+external-controller: 127.0.0.1:9090
 dns:
   enable: true
   ipv6: false
-  enhanced-mode: redir-host
+  enhanced-mode: fake-ip
   listen: 127.0.0.1:7874
   default-nameserver:
   - 114.114.114.114
@@ -123,25 +134,45 @@ dns:
   - "*.linksys.com"
   - "*.linksyssmartwifi.com"
   - "+.battlenet.com.cn"
-
+tun:
+  enable: true
+  stack: gvisor
+  auto-route: true
+  auto-detect-interface: true
+  dns-hijack:
+   - tcp://8.8.8.8:53
+   - tcp://8.8.4.4:53
+experimental:
+  interface-name: en0
+bind-address: "*"
 proxies:
-  - {name: mr.loby.ml3, server: 142.93.168.188, port: 21612, type: ss, udp: true, cipher: chacha20-ietf-poly1305, password: zUOC2CcSPiEX}    
+  - name: mr.loby.ml2
+    type: ss
+    server: 142.93.168.188
+    port: 21612
+    cipher: chacha20-ietf-poly1305
+    password: zUOC2CcSPiEX
 proxy-groups:
   - name: mrloby
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
-    tolerance: 50
     proxies:
-     - mr.loby.ml3
+     - mr.loby.ml2
 rules:
-  - DOMAIN,mgl.lobby.igamecj.com,mrloby
   - DOMAIN,pay.igamecj.com,mrloby
-  - DOMAIN,graph.facebook.com,mrloby
-  - DOMAIN,euspeed.igamecj.com,mrloby
-  - DOMAIN,pay.igamecj.com,mrloby
+  - DOMAIN,firebaseremoteconfig.googleapis.com,mrloby
+  - DOMAIN,www.napubgm.broker.amsoveasea.com,mrloby
   - DOMAIN,sg.tdatamaster.com ,mrloby
+  - DOMAIN,euspeed.igamecj.com,mrloby
+  - DOMAIN,kj-se.shadow.igamecj.com,mrloby
   - DOMAIN,meping.igamecj.com,mrloby
+  - DOMAIN,sa-sap.shadow.igamecj.com,mrloby
+  - DOMAIN,as-hk.shadow.igamecj.com,mrloby
+  - DOMAIN,eu-fra.shadow.igamecj.com,mrloby
+  - DOMAIN,na-west.shadow.igamecj.com,mrloby
+  - DOMAIN,de.voice.gcloudcs.com,mrloby
+  - DOMAIN,cloud.gsdk.proximabeta.com,mrloby
   - DOMAIN,2007-shadow.igamecj.com,mrloby
   - DOMAIN,2006-shadow.igamecj.com,mrloby
   - DOMAIN,2008-shadow.igamecj.com,mrloby
@@ -151,4 +182,96 @@ rules:
   - DOMAIN,eu-mo.shadow.igamecj.com,mrloby
   - DOMAIN,eu-fra.shadow.igamecj.com,mrloby
   - DOMAIN,eu-mo.shadow.igamecj.com,mrloby
-  - MATCH,DIRECT  
+  - DOMAIN,qos.hk.gcloudcs.com,mrloby
+  - DOMAIN,pbs.twimg.com,mrloby
+  - DOMAIN,platform-lookaside.fbsbx.com,mrloby
+  - DOMAIN,api.facebook.com,mrloby
+  - DOMAIN,kj-tk.shadow.igamecj.com,mrloby
+  - DOMAIN,kj-se.shadow.igamecj.com,mrloby
+  - DOMAIN,5005-shadow.igamecj.com,mrloby
+  - DOMAIN,sa-sap.shadow.igamecj.com,mrloby
+  - DOMAIN,sa-sap-m.shadow.igamecj.com,mrloby
+  - DOMAIN,sa-scl.shadow.igamecj.com,mrloby
+  - DOMAIN,4006-shadow.igamecj.com,mrloby
+  - DOMAIN,3022-shadow.igamecj.com,mrloby
+  - DOMAIN,as-in.shadow.igamecj.com,mrloby
+  - DOMAIN,as-mb.shadow.igamecj.com,mrloby
+  - DOMAIN,as-hk.shadow.igamecj.com,mrloby
+  - DOMAIN,as-sg.shadow.igamecj.com,mrloby
+  - DOMAIN,3021-shadow.igamecj.com,mrloby
+  - DOMAIN,as-sg-m.shadow.igamecj.com,mrloby
+  - DOMAIN,1006-shadow.igamecj.com,mrloby
+  - DOMAIN,na-mx.shadow.igamecj.com,mrloby
+  - DOMAIN,na-centra.shadow.igamecj.com,mrloby
+  - DOMAIN,na-east.shadow.igamecj.com,mrloby
+  - DOMAIN,na-west.shadow.igamecj.com,mrloby
+  - DOMAIN,app.adjust.com,mrloby
+  - DOMAIN,hk.voice.gcloudcs.com,mrloby
+  - DOMAIN,napubgm.broker.amsoveasea.com,mrloby
+  - DOMAIN,idcconfig.gcloudsdk.com,mrloby
+  - DOMAIN,k.gjacky.com,mrloby
+  - DOMAIN,mgl.lobby.igamecj.com,mrloby
+  - DOMAIN,dl.gjacky.com,mrloby
+  - DOMAIN,asia.csoversea.mbgame.anticheatexpert.com,mrloby
+  - DOMAIN,ig-us-sdkapi.igamecj.com,mrloby
+  - DOMAIN,down.anticheatexpert.com,mrloby
+  - DOMAIN,ig-us-notice.igamecj.com,mrloby
+  - DOMAIN,cloud.vmp.onezapp.com,mrloby
+  - DOMAIN,cdn.wetest.qq.com,mrloby
+  - DOMAIN,astat.bugly.qcloud.com,mrloby
+  - DOMAIN,googleads.g.doubleclick.net,mrloby
+  - DOMAIN,cloudctrl.gcloudsdk.com,mrloby
+  - SRC-IP-CIDR,162.62.60.112/16,mrloby
+  - SRC-IP-CIDR,162.62.55.201/16,mrloby
+  - SRC-IP-CIDR,162.62.55.135/16,mrloby
+  - SRC-IP-CIDR,162.62.60.31/16,mrloby
+  - SRC-IP-CIDR,162.62.52.184/16,mrloby
+  - DST-PORT,80,mrloby
+  - DST-PORT,443,mrloby
+  - DST-PORT,17500,mrloby
+  - DST-PORT,10012,mrloby
+  - DST-PORT,10000,mrloby
+  - DST-PORT,30000,mrloby
+  - DST-PORT,20371,mrloby
+  - DST-PORT,5228,mrloby
+  - DST-PORT,13003,mrloby
+  - DST-PORT,15692,mrloby
+  - DST-PORT,8081,mrloby
+  - DST-PORT,8013,mrloby
+  - DST-PORT,17000,mrloby
+  - DST-PORT,9030,mrloby
+  - DST-PORT,2002,mrloby
+  - DST-PORT,8700,mrloby
+  - DST-PORT,18081,mrloby
+  - DST-PORT,10276,mrloby
+  - DST-PORT,9031,mrloby
+  - DST-PORT,8011,mrloby
+  - DST-PORT,20000,mrloby
+  - DST-PORT,10058,mrloby
+  - DST-PORT,10013,mrloby
+  - DST-PORT,8088,mrloby
+  - DST-PORT,8086,mrloby
+  - DST-PORT,27015,mrloby
+  - DST-PORT,27030,mrloby
+  - DST-PORT,27036,mrloby
+  - DST-PORT,27037,mrloby
+  - DST-PORT,4380,mrloby
+  - DST-PORT,27000,mrloby
+  - DST-PORT,27031,mrloby
+  - DST-PORT,27036,mrloby
+  - DST-PORT,7080,mrloby
+  - DST-PORT,8000,mrloby
+  - DST-PORT,10012,mrloby
+  - DST-PORT,10010,mrloby
+  - DST-PORT,10039,mrloby
+  - DST-PORT,10096,mrloby
+  - DST-PORT,10491,mrloby
+  - DST-PORT,10612,mrloby
+  - DST-PORT,11455,mrloby
+  - DST-PORT,12235,mrloby
+  - DST-PORT,13748,mrloby
+  - DST-PORT,13894,mrloby
+  - DST-PORT,13972,mrloby
+  - DST-PORT,20002,mrloby
+  - GEOIP,CN,mrloby
+  - MATCH,mrloby
