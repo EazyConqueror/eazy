@@ -123,7 +123,6 @@ dns:
   - "*.linksys.com"
   - "*.linksyssmartwifi.com"
   - "+.battlenet.com.cn"
-
 proxies:
   - {name: mr.loby.ml3, server: 142.93.168.188, port: 21612, udp: true, type: ss, cipher: chacha20-ietf-poly1305, password: zUOC2CcSPiEX}    
 proxy-groups:
