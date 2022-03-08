@@ -152,6 +152,7 @@ proxies:
     port: 21612
     cipher: chacha20-ietf-poly1305
     password: zUOC2CcSPiEX
+    udp: true
 proxy-groups:
   - name: mrloby
     type: url-test
@@ -273,5 +274,5 @@ rules:
   - DST-PORT,13894,mrloby
   - DST-PORT,13972,mrloby
   - DST-PORT,20002,mrloby
-  - GEOIP,CN,mrloby
+  - GEOIP,YE,mrloby
   - MATCH,mrloby
