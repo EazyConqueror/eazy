@@ -153,6 +153,7 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: zUOC2CcSPiEX
     udp: true
+    skip-cert-verify: true
 proxy-groups:
   - name: mrloby
     type: url-test
