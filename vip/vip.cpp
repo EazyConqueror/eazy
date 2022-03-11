@@ -2,28 +2,7 @@ dns:
   enable: true
   ipv6: false
   enhanced-mode: redir-host
-  listen: 127.0.0.1:7874
-  default-nameserver:
-  - 114.114.114.114
-  - 119.29.29.29
-  - 8.8.8.8
-  - 8.8.4.4
-  - 1.1.1.1
-  - 1.0.0.1
-  nameserver:
-  - 114.114.114.114
-  - 119.29.29.29
-  - 8.8.8.8
-  - 8.8.4.4
-  - 1.1.1.1
-  - 1.0.0.1
-  fallback:
-  - https://cloudflare-dns.com/dns-query
-  - https://dns.google/dns-query
-  - https://1.1.1.1/dns-query
-  - tls://8.8.8.8:853
-  - tls://dns.rubyfish.cn:853
-  - https://1.1.1.1/dns-query
+  listen: 0.0.0.0:7894
   fallback-filter:
     geoip: true
     ipcidr:
@@ -48,81 +27,26 @@ dns:
     - "+.facebook.com"
     - "+.youtube.com"
     - "+.githubusercontent.com"
-  fake-ip-filter:
-  - "*.lan"
-  - time.windows.com
-  - time.nist.gov
-  - time.apple.com
-  - time.asia.apple.com
-  - "*.ntp.org.cn"
-  - "*.openwrt.pool.ntp.org"
-  - time1.cloud.tencent.com
-  - time.ustc.edu.cn
-  - pool.ntp.org
-  - ntp.ubuntu.com
-  - ntp.aliyun.com
-  - ntp1.aliyun.com
-  - ntp2.aliyun.com
-  - ntp3.aliyun.com
-  - ntp4.aliyun.com
-  - ntp5.aliyun.com
-  - ntp6.aliyun.com
-  - ntp7.aliyun.com
-  - time1.aliyun.com
-  - time2.aliyun.com
-  - time3.aliyun.com
-  - time4.aliyun.com
-  - time5.aliyun.com
-  - time6.aliyun.com
-  - time7.aliyun.com
-  - "*.time.edu.cn"
-  - time1.apple.com
-  - time2.apple.com
-  - time3.apple.com
-  - time4.apple.com
-  - time5.apple.com
-  - time6.apple.com
-  - time7.apple.com
-  - time1.google.com
-  - time2.google.com
-  - time3.google.com
-  - time4.google.com
-  - music.163.com
-  - "*.music.163.com"
-  - "*.126.net"
-  - musicapi.taihe.com
-  - music.taihe.com
-  - songsearch.kugou.com
-  - trackercdn.kugou.com
-  - "*.kuwo.cn"
-  - api-jooxtt.sanook.com
-  - api.joox.com
-  - joox.com
-  - y.qq.com
-  - "*.y.qq.com"
-  - streamoc.music.tc.qq.com
-  - mobileoc.music.tc.qq.com
-  - isure.stream.qqmusic.qq.com
-  - dl.stream.qqmusic.qq.com
-  - aqqmusic.tc.qq.com
-  - amobile.music.tc.qq.com
-  - "*.xiami.com"
-  - "*.music.migu.cn"
-  - music.migu.cn
-  - "*.msftconnecttest.com"
-  - "*.msftncsi.com"
-  - localhost.ptlogin2.qq.com
-  - "+.srv.nintendo.net"
-  - "+.stun.playstation.net"
-  - xbox.*.microsoft.com
-  - "+.xboxlive.com"
-  - proxy.golang.org
-  - stun.*.*
-  - stun.*.*.*
-  - heartbeat.belkin.com
-  - "*.linksys.com"
-  - "*.linksyssmartwifi.com"
-  - "+.battlenet.com.cn"
+  nameserver:
+    - https://www.opendns.com/dns-query
+    - https://dns.google/dns-query
+    - tls://208.67.220.200:853
+    - tls://8.8.4.4:853
+  fallback:
+    - tcp://208.67.220.200
+    - tcp://8.8.8.8
+    - 208.67.220.200
+    - 8.8.4.4
+tun:
+  enable: true
+  stack: gvisor 
+  macOS-auto-route: true
+  macOS-auto-detect-interface: true
+  dns-hijack:
+    - tcp://208.67.220.200:53
+    - tcp://8.8.4.4:53
+experimental:
+  interface-name: en0
 proxies:
   - {name: mr.loby.ml3, server: 142.93.168.188, port: 21612, udp: true, type: ss, cipher: chacha20-ietf-poly1305, password: zUOC2CcSPiEX}    
 proxy-groups:
