@@ -28,15 +28,15 @@ dns:
     - "+.youtube.com"
     - "+.githubusercontent.com"
   nameserver:
-    - https://www.opendns.com/dns-query
-    - https://dns.google/dns-query
-    - tls://208.67.220.200:853
-    - tls://8.8.4.4:853
-  fallback:
     - tcp://208.67.220.200
     - tcp://8.8.8.8
     - 208.67.220.200
     - 8.8.4.4
+  fallback:
+    - https://www.opendns.com/dns-query
+    - https://dns.google/dns-query
+    - tls://208.67.220.200:853
+    - tls://8.8.4.4:853
 tun:
   enable: true
   stack: gvisor 
