@@ -138,4 +138,4 @@ rules:
   - DOMAIN,pay.igamecj.com,mrloby
   - DOMAIN,graph.facebook.com,mrloby
   - DOMAIN,euspeed.igamecj.com,mrloby
-  - MATCH,DIRECT
+  - MATCH,mrloby
