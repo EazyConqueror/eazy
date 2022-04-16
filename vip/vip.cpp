@@ -57,18 +57,9 @@ proxy-groups:
     tolerance: 50
     proxies:
       - "trojan"
-  - name: gameWS
-    type: select
-    proxies:
-      - "vmess"
-  - name: gameGRPC
-    type: select
-    proxies:
-      - "vmess-grpc"
-  - name: gameSSR
-    type: select
-    proxies:
       - "ssr"
+      - "vmess"
+      - "vmess-grpc"
   - name: gameDIR
     type: select
     proxies:
@@ -97,9 +88,8 @@ rules:
   - DOMAIN-SUFFIX,doubleclick.com,gameTROJAN
   - DOMAIN-SUFFIX,googleapis.com,gameTROJAN
   - GEOIP,CN,gameTROJAN
-  - IP-CIDR,162.0.0.0/8,gameWS
-  - IP-CIDR,49.0.0.0/8,gameGRPC
-  - IP-CIDR,20.0.0.0/8,gameSSR
-  - DST-PORT,9031,gameDIR
+  - IP-CIDR,162.0.0.0/8,gameDIR
+  - IP-CIDR,49.0.0.0/8,gameDIR
+  - IP-CIDR,20.0.0.0/8,gameDIR
   - DOMAIN-SUFFIX,igamecj.com,gameDIR
   - MATCH,DIRECT
