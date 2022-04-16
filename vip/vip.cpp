@@ -57,7 +57,7 @@ proxy-groups:
     tolerance: 50
     proxies:
       - "trojan"
-  - name: WS
+  - name: gameWS
     type: select
     proxies:
       - "vmess"
