@@ -34,6 +34,7 @@ proxies:
     network: grpc
     tls: true
     servername: s.eazyconqueror.tk
+    udp: true
     skip-cert-verify: true
     grpc-opts:
       grpc-service-name: "scvps"
@@ -42,6 +43,7 @@ proxies:
     type: ssr
     server: 207.154.225.199
     port: 1443
+    udp: true
     cipher: aes-256-cfb
     password: vip3
     obfs: tls1.2_ticket_auth
@@ -57,9 +59,18 @@ proxy-groups:
     tolerance: 50
     proxies:
       - "trojan"
-      - "ssr"
+  - name: gameWS
+    type: select
+    proxies:
       - "vmess"
+  - name: gameGRPC
+    type: select
+    proxies:
       - "vmess-grpc"
+  - name: gameSSR
+    type: select
+    proxies:
+      - "ssr"
   - name: gameDIR
     type: select
     proxies:
@@ -88,8 +99,9 @@ rules:
   - DOMAIN-SUFFIX,doubleclick.com,gameTROJAN
   - DOMAIN-SUFFIX,googleapis.com,gameTROJAN
   - GEOIP,CN,gameTROJAN
-  - IP-CIDR,162.0.0.0/8,gameDIR
-  - IP-CIDR,49.0.0.0/8,gameDIR
-  - IP-CIDR,20.0.0.0/8,gameDIR
+  - IP-CIDR,162.0.0.0/8,gameWS
+  - IP-CIDR,49.0.0.0/8,gameGRPC
+  - IP-CIDR,20.0.0.0/8,gameSSR
+  - DST-PORT,9031,gameDIR
   - DOMAIN-SUFFIX,igamecj.com,gameDIR
   - MATCH,DIRECT
