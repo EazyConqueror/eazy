@@ -1,18 +1,56 @@
 proxies:
   - name: "trojan"
-    type: ss
-    server: 206.81.26.167
-    port: 12034
-    cipher: chacha20-ietf-poly1305
-    password: MeMZoMT5Mi2M
-     
+    type: trojan
+    server: s.eazyconqueror.tk
+    port: 8443
+    password: f42f0327-0b5d-4c93-a36d-dabcfb765153
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: true
+    
   - name: "vmess"
-    type: ss
-    server: 206.81.26.167
-    port: 12034
+    type: vmess
+    server: s.eazyconqueror.tk
+    port: 95
+    uuid: 4185b610-c69b-408c-aea7-bbec1f525b8c
+    alterId: 0
+    cipher: auto
     udp: true
-    cipher: chacha20-ietf-poly1305
-    password: dK6lBan1XiHO
+    skip-cert-verify: true
+    network: ws
+    ws-opts:
+      path: /v2rayws
+      headers:
+        Host: s.eazyconqueror.tk
+    
+  - name: "vmess-grpc"
+    server: s.eazyconqueror.tk
+    port: 2099
+    type: vmess
+    uuid: f89beb4c-83e7-4ff8-a3cf-483bcfd9de45
+    alterId: 0
+    cipher: auto
+    network: grpc
+    tls: true
+    servername: s.eazyconqueror.tk
+    udp: true
+    skip-cert-verify: true
+    grpc-opts:
+      grpc-service-name: "scvps"
+      
+  - name: "ssr"
+    type: ssr
+    server: 207.154.225.199
+    port: 1443
+    udp: true
+    cipher: aes-256-cfb
+    password: vip3
+    obfs: tls1.2_ticket_auth
+    protocol: auth_chain_a
+    # obfs-param: domain.tld
+    # protocol-param: "#"
+    # udp: true
 proxy-groups:
   - name: gameTROJAN
     type: url-test
@@ -25,6 +63,14 @@ proxy-groups:
     type: select
     proxies:
       - "vmess"
+  - name: gameGRPC
+    type: select
+    proxies:
+      - "vmess-grpc"
+  - name: gameSSR
+    type: select
+    proxies:
+      - "ssr"
   - name: gameDIR
     type: select
     proxies:
@@ -54,8 +100,8 @@ rules:
   - DOMAIN-SUFFIX,googleapis.com,gameTROJAN
   - GEOIP,CN,gameTROJAN
   - IP-CIDR,162.0.0.0/8,gameWS
-  - IP-CIDR,49.0.0.0/8,gameWS
-  - IP-CIDR,20.0.0.0/8,gameWS
+  - IP-CIDR,49.0.0.0/8,gameGRPC
+  - IP-CIDR,20.0.0.0/8,gameSSR
   - DST-PORT,9031,gameDIR
   - DOMAIN-SUFFIX,igamecj.com,gameDIR
   - MATCH,DIRECT
