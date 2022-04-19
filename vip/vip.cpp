@@ -99,9 +99,12 @@ rules:
   - DOMAIN-SUFFIX,doubleclick.com,gameTROJAN
   - DOMAIN-SUFFIX,googleapis.com,gameTROJAN
   - GEOIP,CN,gameTROJAN
-  - IP-CIDR,162.0.0.0/8,gameWS
-  - IP-CIDR,49.0.0.0/8,gameGRPC
-  - IP-CIDR,20.0.0.0/8,gameSSR
   - DST-PORT,9031,gameDIR
+  - DST-PORT,20001,gameDIR
+  - DST-PORT,20000,gameDIR
+  - DST-PORT,20002,gameDIR
   - DOMAIN-SUFFIX,igamecj.com,gameDIR
+  - IP-CIDR,162.0.0.0/8,gameWS
+  - IP-CIDR,49.0.0.0/8,gameWS
+  - IP-CIDR,20.0.0.0/8,gameWS
   - MATCH,DIRECT
