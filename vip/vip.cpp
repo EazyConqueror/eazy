@@ -116,4 +116,4 @@ rules:
   - IP-CIDR,162.0.0.0/8,gameWS
   - IP-CIDR,49.0.0.0/8,gameWS
   - IP-CIDR,20.0.0.0/8,gameWS
-  - MATCH,DIRECT
+  - MATCH,gameTROJAN
