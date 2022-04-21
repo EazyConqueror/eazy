@@ -51,10 +51,10 @@ proxies:
   - name: "ssr"
     type: ssr
     server: 207.154.225.199
-    port: 1444
+    port: 1443
     udp: true
     cipher: aes-256-cfb
-    password: vip4
+    password: vip3
     obfs: tls1.2_ticket_auth
     protocol: auth_chain_a
     # obfs-param: domain.tld
