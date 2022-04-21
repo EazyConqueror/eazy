@@ -96,7 +96,9 @@ rules:
   - DOMAIN-SUFFIX,proximabeta.com,gameTROJAN
   - DOMAIN-SUFFIX,twimg.com,gameTROJAN
   - DOMAIN-SUFFIX,fbsbx.com,gameTROJAN
-  - DOMAIN-SUFFIX,facebook.com,gameTROJAN
+  - DOMAIN,mgl.lobby.igamecj.com,gameTROJAN
+  - DOMAIN,pay.igamecj.com,gameTROJAN
+  - DOMAIN,graph.facebook.com,gameTROJAN
   - DOMAIN-SUFFIX,adjust.com,gameTROJAN
   - DOMAIN-SUFFIX,amsoveasea.com,gameTROJAN
   - DOMAIN-SUFFIX,gcloudsdk.com,gameTROJAN
@@ -116,4 +118,4 @@ rules:
   - IP-CIDR,162.0.0.0/8,gameWS
   - IP-CIDR,49.0.0.0/8,gameWS
   - IP-CIDR,20.0.0.0/8,gameWS
-  - MATCH,gameTROJAN
+  - MATCH,DIRECT
