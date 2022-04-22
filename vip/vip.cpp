@@ -16,10 +16,9 @@ proxies:
     alterId: 0
     cipher: auto
     network: grpc
-    servername: super.eazyconqueror.tk
+    servername: ctech.me
     tls: true
     udp: true
-    skip-cert-verify: true
     grpc-opts:
       grpc-service-name: "GunService"
       
