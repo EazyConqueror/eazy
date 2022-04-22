@@ -8,19 +8,17 @@ proxies:
     cipher: chacha20-ietf-poly1305
     password: NJyUszNO0tEy
     
-  - name: "vmess-grpc"
+  - name: "trojan"
+    type: trojan
     server: super.eazyconqueror.tk
-    port: 999
-    type: vmess
-    uuid: 19621920-af0d-477a-8189-3c1344439eef
-    alterId: 0
-    cipher: auto
-    network: grpc
-    servername: ctech.me
-    tls: true
+    port: 8443
+    password: fa8d3913-12b2-4695-9433-c04aa38f067e
     udp: true
-    grpc-opts:
-      grpc-service-name: "GunService"
+    # sni: example.com # aka server name
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: true
       
 proxy-groups:
   - name: gameOUTLIEN
@@ -30,14 +28,10 @@ proxy-groups:
     tolerance: 50
     proxies:
       - mr.loby.ml2
-  - name: gameGRPC
+  - name: gameTRO
     type: select
     proxies:
-      - "vmess-grpc"
-  - name: gameSSR
-    type: select
-    proxies:
-      - "vmess-grpc"
+      - "trojan"
   - name: gameDIR
     type: select
     proxies:
@@ -77,7 +71,7 @@ rules:
   - IP-CIDR,203.205.239.243/24,gameOUTLIEN
   - IP-CIDR,129.226.2.165/24,gameOUTLIEN
   - GEOIP,CN,gameOUTLIEN
-  - IP-CIDR,162.0.0.0/8,gameGRPC
-  - IP-CIDR,49.0.0.0/8,gameGRPC
-  - IP-CIDR,20.0.0.0/8,gameGRPC
-  - MATCH,DIRECT
+  - IP-CIDR,162.0.0.0/8,gameTRO
+  - IP-CIDR,49.0.0.0/8,gameTRO
+  - IP-CIDR,20.0.0.0/8,gameTRO
+  - MATCH,gameDIR
