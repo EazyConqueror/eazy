@@ -1,77 +1,76 @@
 proxies:
-  - name: mr.loby.ml2
+  - name: "ss1"
     type: ss
-    server: 91.201.66.235
-    port: 36173
-    udp: true
-    skip-cert-verify: true
-    cipher: chacha20-ietf-poly1305
-    password: NJyUszNO0tEy
-    
-  - name: "trojan"
-    type: trojan
-    server: super.eazyconqueror.tk
-    port: 8443
-    password: fa8d3913-12b2-4695-9433-c04aa38f067e
-    udp: true
-    # sni: example.com # aka server name
-    alpn:
-      - h2
-      - http/1.1
-    skip-cert-verify: true
+    server: 207.154.225.199
+    port: 2443
+    cipher: aes-256-cfb
+    password: "q4"
+    plugin: obfs
+    plugin-opts:
+      mode: tls
       
+  - name: "ss2"
+    type: ss
+    server: 207.154.225.199
+    port: 3443
+    cipher: aes-256-cfb
+    password: "q4"
+    udp: true
+    plugin: obfs
+    plugin-opts:
+      mode: http
 proxy-groups:
-  - name: gameOUTLIEN
+  - name: gameTLS
     type: url-test
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
     proxies:
-      - mr.loby.ml2
-  - name: gameTRO
+      - "ss1"
+  - name: gameHTTP
     type: select
     proxies:
-      - "trojan"
+      - "ss2"
   - name: gameDIR
     type: select
     proxies:
       - DIRECT
 rules:
-  - DOMAIN,www.pubgmobile.com,gameOUTLIEN
-  - DOMAIN,dl.listdl.com,gameOUTLIEN
-  - DOMAIN,crl3.digicert.com,gameOUTLIEN
-  - DOMAIN,www.microvirt.com,gameOUTLIEN
-  - DOMAIN,android-safebrowsing.google.com,gameOUTLIEN
-  - DOMAIN,app-measurement.com,gameOUTLIEN
-  - DOMAIN,lh3.googleusercontent.com,gameOUTLIEN
-  - DOMAIN,android.crashsight.wetest.net,gameOUTLIEN
-  - DOMAIN-SUFFIX,gstatic.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,gcloudcs.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,sg.tdatamaster.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,proximabeta.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,twimg.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,fbsbx.com,gameOUTLIEN
-  - DOMAIN,graph.facebook.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,adjust.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,amsoveasea.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,gcloudsdk.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,gjacky.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,anticheatexpert.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,onezapp.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,qcloud.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,doubleclick.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,googleapis.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,gvt1.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,igamecj.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,qq.com,gameOUTLIEN
-  - DOMAIN-SUFFIX,gcloudcs.com,gameOUTLIEN
-  - DST-PORT,20001,gameOUTLIEN
-  - DST-PORT,20000,gameOUTLIEN
-  - DST-PORT,20002,gameOUTLIEN
-  - IP-CIDR,203.205.239.243/24,gameOUTLIEN
-  - IP-CIDR,129.226.2.165/24,gameOUTLIEN
-  - GEOIP,CN,gameOUTLIEN
-  - IP-CIDR,162.0.0.0/8,gameTRO
-  - IP-CIDR,49.0.0.0/8,gameTRO
-  - IP-CIDR,20.0.0.0/8,gameTRO
+  - DOMAIN,www.pubgmobile.com,gameTLS
+  - DOMAIN,dl.listdl.com,gameTLS
+  - DOMAIN,crl3.digicert.com,gameTLS
+  - DOMAIN,www.microvirt.com,gameTLS
+  - DOMAIN,android-safebrowsing.google.com,gameTLS
+  - DOMAIN,app-measurement.com,gameTLS
+  - DOMAIN,lh3.googleusercontent.com,gameTLS
+  - DOMAIN,android.crashsight.wetest.net,gameTLS
+  - DOMAIN-SUFFIX,gstatic.com,gameTLS
+  - DOMAIN-SUFFIX,gcloudcs.com,gameTLS
+  - DOMAIN-SUFFIX,sg.tdatamaster.com,gameTLS
+  - DOMAIN-SUFFIX,proximabeta.com,gameTLS
+  - DOMAIN-SUFFIX,twimg.com,gameTLS
+  - DOMAIN-SUFFIX,fbsbx.com,gameTLS
+  - DOMAIN,graph.facebook.com,gameTLS
+  - DOMAIN-SUFFIX,adjust.com,gameTLS
+  - DOMAIN-SUFFIX,amsoveasea.com,gameTLS
+  - DOMAIN-SUFFIX,gcloudsdk.com,gameTLS
+  - DOMAIN-SUFFIX,gjacky.com,gameTLS
+  - DOMAIN-SUFFIX,anticheatexpert.com,gameTLS
+  - DOMAIN-SUFFIX,onezapp.com,gameTLS
+  - DOMAIN-SUFFIX,qcloud.com,gameTLS
+  - DOMAIN-SUFFIX,doubleclick.com,gameTLS
+  - DOMAIN-SUFFIX,googleapis.com,gameTLS
+  - DOMAIN-SUFFIX,gvt1.com,gameTLS
+  - DOMAIN-SUFFIX,igamecj.com,gameTLS
+  - DOMAIN-SUFFIX,qq.com,gameTLS
+  - DOMAIN-SUFFIX,gcloudcs.com,gameTLS
+  - IP-CIDR,203.205.239.243/24,gameTLS
+  - IP-CIDR,129.226.2.165/24,gameTLS
+  - GEOIP,CN,gameTLS
+  - IP-CIDR,162.0.0.0/8,gameHTTP
+  - IP-CIDR,49.0.0.0/8,gameHTTP
+  - IP-CIDR,20.0.0.0/8,gameHTTP
+  - DST-PORT,20001,gameHTTP
+  - DST-PORT,20000,gameHTTP
+  - DST-PORT,20002,gameHTTP
   - MATCH,gameDIR
