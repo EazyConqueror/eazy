@@ -10,15 +10,17 @@ proxies:
       mode: tls
       
   - name: "ss2"
-    type: ss
+    type: ssr
     server: 207.154.225.199
-    port: 3443
-    cipher: aes-256-cfb
-    password: "q4"
+    port: 1443
     udp: true
-    plugin: obfs
-    plugin-opts:
-      mode: http
+    cipher: aes-256-cfb
+    password: vip3
+    obfs: tls1.2_ticket_auth
+    protocol: auth_chain_a
+    # obfs-param: domain.tld
+    # protocol-param: "#"
+    # udp: true
 proxy-groups:
   - name: gameTLS
     type: url-test
