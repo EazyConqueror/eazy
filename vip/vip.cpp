@@ -2,12 +2,11 @@ proxies:
   - name: "ss2"
     type: ss
     server: 207.154.225.199
-    port: 2443
-    cipher: aes-256-cfb
-    password: "q4"
-    plugin: obfs
-    plugin-opts:
-      mode: tls
+    port: 26046
+    udp: true
+    skip-cert-verify: true
+    cipher: chacha20-ietf-poly1305
+    password: IF1lnUjSbNSH
 
   - name: "ssr"
     type: ssr
@@ -64,12 +63,12 @@ rules:
   - DOMAIN-SUFFIX,doubleclick.com,gameTLS
   - DOMAIN-SUFFIX,googleapis.com,gameTLS
   - DOMAIN-SUFFIX,gvt1.com,gameTLS
-  - DOMAIN-SUFFIX,igamecj.com,gameHTTP
-  - DOMAIN-SUFFIX,qq.com,gameHTTP
-  - DOMAIN-SUFFIX,gcloudcs.com,gameHTTP
-  - IP-CIDR,203.205.239.243/24,gameHTTP
-  - IP-CIDR,129.226.2.165/24,gameHTTP
-  - GEOIP,CN,gameHTTP
+  - DOMAIN-SUFFIX,igamecj.com,gameTLS
+  - DOMAIN-SUFFIX,qq.com,gameTLS
+  - DOMAIN-SUFFIX,gcloudcs.com,gameTLS
+  - IP-CIDR,203.205.239.243/24,gameTLS
+  - IP-CIDR,129.226.2.165/24,gameTLS
+  - GEOIP,CN,gameTLS
   - IP-CIDR,162.0.0.0/8,gameHTTP
   - IP-CIDR,49.0.0.0/8,gameHTTP
   - IP-CIDR,20.0.0.0/8,gameHTTP
