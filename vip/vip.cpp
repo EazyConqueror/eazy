@@ -1,20 +1,20 @@
 proxies:   
   - name: "ss2"
     type: ss
-    server: 15.185.233.7
-    port: 43401
+    server: 207.154.225.199
+    port: 26046
     udp: true
     skip-cert-verify: true
     cipher: chacha20-ietf-poly1305
-    password: kmzlcG06ecIg
+    password: IF1lnUjSbNSH
 
   - name: "ssr"
     type: ssr
-    server: 15.185.233.7
+    server: 207.154.225.199
     port: 1443
     udp: true
     cipher: aes-256-cfb
-    password: vip1
+    password: vip7
     obfs: tls1.2_ticket_auth
     protocol: auth_chain_a
     # obfs-param: domain.tld
