@@ -1,20 +1,20 @@
 proxies:   
   - name: "ss2"
     type: ss
-    server: 207.154.225.199
-    port: 26046
+    server: 15.185.233.7
+    port: 43401
     udp: true
     skip-cert-verify: true
     cipher: chacha20-ietf-poly1305
-    password: IF1lnUjSbNSH
+    password: kmzlcG06ecIg
 
   - name: "ssr"
     type: ssr
-    server: 207.154.225.199
-    port: 1445
+    server: 15.185.233.7
+    port: 1443
     udp: true
     cipher: aes-256-cfb
-    password: vip5
+    password: vip1
     obfs: tls1.2_ticket_auth
     protocol: auth_chain_a
     # obfs-param: domain.tld
@@ -68,6 +68,7 @@ rules:
   - DOMAIN-SUFFIX,gcloudcs.com,gameTLS
   - IP-CIDR,203.205.239.243/24,gameTLS
   - IP-CIDR,129.226.2.165/24,gameTLS
+  - IP-CIDR,172.16.0.1/24,gameTLS
   - GEOIP,CN,gameTLS
   - IP-CIDR,162.0.0.0/8,gameHTTP
   - IP-CIDR,49.0.0.0/8,gameHTTP
