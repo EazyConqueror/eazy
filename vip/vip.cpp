@@ -1,22 +1,14 @@
 proxies:   
-  - name: "ss2"
-    type: ss
-    server: 207.154.225.199
-    port: 26046
-    udp: true
-    skip-cert-verify: true
-    cipher: chacha20-ietf-poly1305
-    password: IF1lnUjSbNSH
-
   - name: "ssr"
     type: ssr
     server: 207.154.225.199
-    port: 1443
+    port: 1444
     udp: true
     cipher: aes-256-cfb
-    password: vip7
+    password: vip1
     obfs: tls1.2_ticket_auth
-    protocol: auth_chain_a
+    protocol: origin
+    #auth_chain_a 
     # obfs-param: domain.tld
     # protocol-param: "#"
     # udp: true
@@ -28,7 +20,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - "ss2"
+      - "ssr"
   - name: gameHTTP
     type: select
     proxies:
