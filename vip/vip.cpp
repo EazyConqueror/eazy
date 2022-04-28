@@ -14,8 +14,7 @@ proxies:
     cipher: aes-256-cfb
     password: vip1
     obfs: tls1.2_ticket_auth
-    protocol: origin
-    #auth_chain_a 
+    protocol: auth_chain_a
     # obfs-param: domain.tld
     # protocol-param: "#"
     # udp: true
