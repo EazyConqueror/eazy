@@ -1,5 +1,12 @@
 proxies:   
-  - name: "ssr"
+  - name: "ssr1"
+    type: ss
+    server: 207.154.225.199
+    port: 26046
+    cipher: chacha20-ietf-poly1305
+    password: IF1lnUjSbNSH
+
+  - name: "ssr2"
     type: ssr
     server: 207.154.225.199
     port: 1444
@@ -20,11 +27,11 @@ proxy-groups:
     interval: 300
     tolerance: 50
     proxies:
-      - "ssr"
+      - "ssr1"
   - name: gameHTTP
     type: select
     proxies:
-      - "ssr"
+      - "ssr2"
   - name: gameDIR
     type: select
     proxies:
@@ -55,12 +62,12 @@ rules:
   - DOMAIN-SUFFIX,doubleclick.com,gameTLS
   - DOMAIN-SUFFIX,googleapis.com,gameTLS
   - DOMAIN-SUFFIX,gvt1.com,gameTLS
-  - DOMAIN-SUFFIX,igamecj.com,gameTLS
-  - DOMAIN-SUFFIX,qq.com,gameTLS
-  - DOMAIN-SUFFIX,gcloudcs.com,gameTLS
-  - IP-CIDR,203.205.239.243/24,gameTLS
-  - IP-CIDR,129.226.2.165/24,gameTLS
-  - IP-CIDR,172.16.0.1/24,gameTLS
+  - DOMAIN-SUFFIX,igamecj.com,gameHTTP
+  - DOMAIN-SUFFIX,qq.com,gameHTTP
+  - DOMAIN-SUFFIX,gcloudcs.com,gameHTTP
+  - IP-CIDR,203.205.239.243/24,gameHTTP
+  - IP-CIDR,129.226.2.165/24,gameHTTP
+  - IP-CIDR,172.16.0.1/24,gameHTTP
   - GEOIP,CN,gameTLS
   - IP-CIDR,162.0.0.0/8,gameHTTP
   - IP-CIDR,49.0.0.0/8,gameHTTP
@@ -68,4 +75,4 @@ rules:
   - DST-PORT,20001,gameHTTP
   - DST-PORT,20000,gameHTTP
   - DST-PORT,20002,gameHTTP
-  - MATCH,gameDIR
+  - MATCH,gameTLS
