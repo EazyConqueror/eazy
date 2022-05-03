@@ -243,24 +243,22 @@ dns:
 proxies:
   - name: ssr1
     type: vmess
-    server: s.eazyconqueror.tk
-    port: 95
-    uuid: bff76422-88ae-4d33-88f9-151138a5b668
+    server: gr.alw9lat.com
+    port: 47959
+    uuid: dd769fb6-7fff-4af9-8a88-8655ce3a4fe2
     alterId: 0
     cipher: auto
-    udp: true
-    servername: example.com
-    network: ws
-    ws-opts:
-      path: /v2rayws
-      headers:
-        Host: v2ray.com
+    network: h2
+    tls: true
+    h2-opts:
+      host:
+        - google.com
+      path: /
 proxy-groups:
   - name: gameTLS
-    type: url-test
+    type: fallback
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
+    interval: 3600
     proxies:
       - ssr1
 rules:
