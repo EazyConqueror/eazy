@@ -256,9 +256,10 @@ proxies:
       path: /
 proxy-groups:
   - name: gameTLS
-    type: fallback
+    type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 3600
+    interval: 300
+    tolerance: 50
     proxies:
       - ssr1
 rules:
