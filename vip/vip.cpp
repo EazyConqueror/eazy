@@ -244,22 +244,25 @@ proxies:
   - name: ssr1
     type: vmess
     server: gr.alw9lat.com
-    port: 47959
-    uuid: dd769fb6-7fff-4af9-8a88-8655ce3a4fe2
+    port: 56906
+    uuid: a9adf033-476a-4157-eb4e-8ac612cffd12
     alterId: 0
     cipher: auto
-    network: h2
-    tls: true
-    h2-opts:
-      host:
-        - google.com
-      path: /
+    udp: true
+    #tls: true
+    network: http
+    http-opts:
+      method: "GET"
+      path:
+        - '/'
+      headers:
+        Connection:
+          - keep-alive
 proxy-groups:
   - name: gameTLS
-    type: url-test
+    type: fallback
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
+    interval: 3600
     proxies:
       - ssr1
 rules:
