@@ -1,45 +1,9 @@
 port: 7890
 socks-port: 7891
-redir-port: 7892
-tproxy-port: 7895
-mixed-port: 7893
 allow-lan: true
-mode: rule
+mode: Rule
 log-level: info
-ipv6: false
 external-controller: 0.0.0.0:9090
-dns:
-  enable: true
-  ipv6: false
-  enhanced-mode: fake-ip
-  listen: 0.0.0.0:7874
-  default-nameserver:
-    - 114.114.114.114
-    - 119.29.29.29
-    - 9.9.9.9
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-  nameserver:
-    - 114.114.114.114
-    - 119.29.29.29
-    - 9.9.9.9
-    - 8.8.8.8
-    - 8.8.4.4
-    - 1.1.1.1
-    - 1.0.0.1
-    - https://dns.adguard.com/dns-query
-    - https://dns.google/dns-query
-    - tls://dns.adguard.com
-    - tls://dns.google
-  fallback:
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
-    - https://1.1.1.1/dns-query
-    - tls://8.8.8.8:853
-    - tls://dns.rubyfish.cn:853
-    - https://1.1.1.1/dns-query
 proxies:
   - name: "ws"
     type: vmess
@@ -48,20 +12,12 @@ proxies:
     uuid: 513f43b0-79ea-4780-a1a9-115984fce85f
     alterId: 0
     cipher: auto
+    udp: true
     network: ws
     ws-opts:
       path: /v2rayws
       headers:
         Host: google.com
-    udp: true
-  - name: "snell"
-    type: snell
-    server: 207.154.225.199
-    port: 13254
-    psk: mDtOX5YyyOMGT4ks
-    obfs-opts:
-     mode: http
-     host: telegram.org
 proxy-groups:
   - name: gameTLS
     type: url-test
@@ -72,10 +28,10 @@ proxy-groups:
       - "ws"
 rules:
   - DST-PORT,9030,DIRECT
-  - DST-PORT,9031,DIRECT
-  - DST-PORT,20000,DIRECT
-  - DST-PORT,20001,DIRECT
-  - DST-PORT,20002,DIRECT
+  - DST-PORT,9031,gameTLS
+  - DST-PORT,20000,gameTLS
+  - DST-PORT,20001,gameTLS
+  - DST-PORT,20002,gameTLS
   - DOMAIN,www.pubgmobile.com,gameTLS
   - DOMAIN,dl.listdl.com,gameTLS
   - DOMAIN,crl3.digicert.com,gameTLS
