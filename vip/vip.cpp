@@ -52,7 +52,8 @@ proxies:
     ws-opts:
       path: /v2rayws
       headers:
-        Host: s.eazyconqueror.tk
+        Host: google.com
+    udp: true
   - name: "snell"
     type: snell
     server: 207.154.225.199
@@ -70,11 +71,11 @@ proxy-groups:
     proxies:
       - "ws"
 rules:
-  - DST-PORT,9030,gameTLS
-  - DST-PORT,9031,gameTLS
-  - DST-PORT,20000,gameTLS
-  - DST-PORT,20001,gameTLS
-  - DST-PORT,20002,gameTLS
+  - DST-PORT,9030,DIRECT
+  - DST-PORT,9031,DIRECT
+  - DST-PORT,20000,DIRECT
+  - DST-PORT,20001,DIRECT
+  - DST-PORT,20002,DIRECT
   - DOMAIN,www.pubgmobile.com,gameTLS
   - DOMAIN,dl.listdl.com,gameTLS
   - DOMAIN,crl3.digicert.com,gameTLS
