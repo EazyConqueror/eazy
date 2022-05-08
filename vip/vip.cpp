@@ -48,7 +48,6 @@ proxies:
     uuid: 513f43b0-79ea-4780-a1a9-115984fce85f
     alterId: 0
     cipher: auto
-    udp: true
     network: ws
     ws-opts:
       path: /v2rayws
@@ -64,8 +63,10 @@ proxies:
      host: telegram.org
 proxy-groups:
   - name: gameTLS
-    type: select
-    disable-udp: true
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
     proxies:
       - "ws"
 rules:
