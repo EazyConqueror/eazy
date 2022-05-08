@@ -65,10 +65,9 @@ proxies:
 proxy-groups:
   - name: gameTLS
     type: select
-    #disable-udp: true
+    disable-udp: true
     proxies:
       - "ws"
-      - "snell"
 rules:
   - DST-PORT,9030,gameTLS
   - DST-PORT,9031,gameTLS
@@ -107,8 +106,8 @@ rules:
   - IP-CIDR,129.226.2.165/24,gameTLS
   - IP-CIDR,172.16.0.1/24,gameTLS
   - IP-CIDR,137.208.72.137/24,gameTLS
-  - IP-CIDR,162.0.0.0/8,DIRECT
-  - IP-CIDR,49.0.0.0/8,DIRECT
-  - IP-CIDR,20.0.0.0/8,DIRECT
+  - IP-CIDR,162.0.0.0/8,gameTLS
+  - IP-CIDR,49.0.0.0/8,gameTLS
+  - IP-CIDR,20.0.0.0/8,gameTLS
   - GEOIP,CN,gameTLS
   - MATCH,DIRECT
