@@ -44,7 +44,7 @@ proxies:
   - name: "ws"
     type: vmess
     server: s.eazyconqueror.tk
-    port: 95
+    port: 443
     uuid: 1a7baf3a-7fe0-4a17-894a-13d68907b49c
     alterId: 0
     cipher: auto
