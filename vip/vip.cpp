@@ -45,7 +45,7 @@ proxies:
     type: vmess
     server: s.eazyconqueror.tk
     port: 9030
-    uuid: 513f43b0-79ea-4780-a1a9-115984fce85f
+    uuid: 1a7baf3a-7fe0-4a17-894a-13d68907b49c
     alterId: 0
     cipher: auto
     udp: true
