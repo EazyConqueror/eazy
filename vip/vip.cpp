@@ -1,15 +1,51 @@
 port: 7890
 socks-port: 7891
+redir-port: 7892
+tproxy-port: 7895
+mixed-port: 7893
 allow-lan: true
-mode: Rule
+mode: rule
 log-level: info
+ipv6: false
 external-controller: 0.0.0.0:9090
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  listen: 0.0.0.0:7874
+  default-nameserver:
+    - 114.114.114.114
+    - 119.29.29.29
+    - 9.9.9.9
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+  nameserver:
+    - 114.114.114.114
+    - 119.29.29.29
+    - 9.9.9.9
+    - 8.8.8.8
+    - 8.8.4.4
+    - 1.1.1.1
+    - 1.0.0.1
+    - https://dns.adguard.com/dns-query
+    - https://dns.google/dns-query
+    - tls://dns.adguard.com
+    - tls://dns.google
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - https://1.1.1.1/dns-query
+    - tls://8.8.8.8:853
+    - tls://dns.rubyfish.cn:853
+    - https://1.1.1.1/dns-query
 proxies:
   - name: "ws"
     type: vmess
     server: s.eazyconqueror.tk
     port: 95
-    uuid: 513f43b0-79ea-4780-a1a9-115984fce85f
+    uuid: 1a7baf3a-7fe0-4a17-894a-13d68907b49c
     alterId: 0
     cipher: auto
     udp: true
@@ -17,17 +53,15 @@ proxies:
     ws-opts:
       path: /v2rayws
       headers:
-        Host: google.com
+        Host: pubgmobile.com
 proxy-groups:
   - name: gameTLS
-    type: url-test
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
+    type: select
+    #disable-udp: true
     proxies:
       - "ws"
 rules:
-  - DST-PORT,9030,DIRECT
+  - DST-PORT,9030,gameTLS
   - DST-PORT,9031,gameTLS
   - DST-PORT,20000,gameTLS
   - DST-PORT,20001,gameTLS
