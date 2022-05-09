@@ -43,17 +43,17 @@ dns:
 proxies:
   - name: "ws"
     type: vmess
-    server: s.eazyconqueror.tk
-    port: 95
-    uuid: 513f43b0-79ea-4780-a1a9-115984fce85f
+    server: gr.alw9lat.com
+    port: 35651
+    uuid: 9f676172-149d-4cd7-ad00-ea512c3661ca
     alterId: 0
     cipher: auto
     udp: true
     network: ws
     ws-opts:
-      path: /v2rayws
+      path: /
       headers:
-        Host: pubgmobile.com
+        Host: telegram.org
 proxy-groups:
   - name: gameTLS
     type: select
