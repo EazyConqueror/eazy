@@ -48,7 +48,6 @@ proxies:
     uuid: 9f676172-149d-4cd7-ad00-ea512c3661ca
     alterId: 0
     cipher: auto
-    udp: true
     network: ws
     ws-opts:
       path: /
