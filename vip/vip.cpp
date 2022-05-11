@@ -43,21 +43,23 @@ dns:
 proxies:
   - name: "ws"
     type: vmess
-    server: s.eazyconqueror.tk
-    port: 9030
-    uuid: f97ef2b6-2ccc-4ce8-9435-6ef92707f2b8
+    server: gr.alw9lat.com
+    port: 35651
+    uuid: 9f676172-149d-4cd7-ad00-ea512c3661ca
     alterId: 0
     cipher: auto
     udp: true
     network: ws
     ws-opts:
-      path: /v2rayws
+      path: /
       headers:
         Host: telegram.org
 proxy-groups:
   - name: gameTLS
-    type: select
-    #disable-udp: true
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
     proxies:
       - "ws"
 rules:
