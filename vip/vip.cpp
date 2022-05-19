@@ -41,29 +41,22 @@ dns:
     - tls://dns.rubyfish.cn:853
     - https://1.1.1.1/dns-query
 proxies:
-  - name: "ws"
+  - name: ssr1
     type: vmess
-    server: it.eazyconqueror.tk
-    port: 95
-    uuid: 0baf118e-2fdb-461a-a5c0-a37135610b26
+    server: gr.alw9lat.com
+    port: 56906
+    uuid: a9adf033-476a-4157-eb4e-8ac612cffd12
     alterId: 0
     cipher: auto
     udp: true
-    #tls: true
-    #skip-cert-verify: true
-    network: tcp
-    ws-opts:
-      path: /xrayws
+    network: http
+    http-opts:
+      method: "GET"
+      path:
+        - '/'
       headers:
-        Host: it.eazyconqueror.tk
-
-  - name: ssr3
-    type: ss
-    server: 35.152.59.94
-    port: 30867
-    cipher: chacha20-ietf-poly1305
-    password: lVWuFZDDyjHi
-    udp: true
+        Connection:
+          - keep-alive
 proxy-groups:
   - name: gameTLS
     type: url-test
@@ -71,7 +64,7 @@ proxy-groups:
     interval: 50
     tolerance: 30
     proxies:
-      - "ws"
+      - ssr1
 rules:
   - DST-PORT,9030,gameTLS
   - DST-PORT,9031,gameTLS
