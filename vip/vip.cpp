@@ -43,22 +43,33 @@ dns:
 proxies:
   - name: "ws"
     type: vmess
-    server: gr.alw9lat.com
-    port: 35651
-    uuid: 9f676172-149d-4cd7-ad00-ea512c3661ca
+    server: it.eazyconqueror.tk
+    port: 95
+    uuid: 0baf118e-2fdb-461a-a5c0-a37135610b26
     alterId: 0
     cipher: auto
-    network: ws
+    udp: true
+    #tls: true
+    #skip-cert-verify: true
+    network: tcp
     ws-opts:
-      path: /
+      path: /xrayws
       headers:
-        Host: telegram.org
+        Host: it.eazyconqueror.tk
+
+  - name: ssr3
+    type: ss
+    server: 35.152.59.94
+    port: 30867
+    cipher: chacha20-ietf-poly1305
+    password: lVWuFZDDyjHi
+    udp: true
 proxy-groups:
   - name: gameTLS
     type: url-test
     url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
+    interval: 50
+    tolerance: 30
     proxies:
       - "ws"
 rules:
@@ -99,8 +110,8 @@ rules:
   - IP-CIDR,129.226.2.165/24,gameTLS
   - IP-CIDR,172.16.0.1/24,gameTLS
   - IP-CIDR,137.208.72.137/24,gameTLS
-  - IP-CIDR,162.0.0.0/8,gameTLS
-  - IP-CIDR,49.0.0.0/8,gameTLS
-  - IP-CIDR,20.0.0.0/8,gameTLS
+  - IP-CIDR,162.0.0.0/8,ssr3
+  - IP-CIDR,49.0.0.0/8,ssr3
+  - IP-CIDR,20.0.0.0/8,ssr3
   - GEOIP,CN,gameTLS
   - MATCH,DIRECT
