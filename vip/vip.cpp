@@ -41,22 +41,21 @@ dns:
     - tls://dns.rubyfish.cn:853
     - https://1.1.1.1/dns-query
 proxies:
-  - name: ssr1
+  - name: "ws"
     type: vmess
-    server: gr.alw9lat.com
-    port: 56906
-    uuid: a9adf033-476a-4157-eb4e-8ac612cffd12
+    server: it.eazyconqueror.tk
+    port: 95
+    uuid: 0baf118e-2fdb-461a-a5c0-a37135610b26
     alterId: 0
     cipher: auto
     udp: true
-    network: http
-    http-opts:
-      method: "GET"
-      path:
-        - '/'
+    #tls: true
+    #skip-cert-verify: true
+    network: tcp
+    ws-opts:
+      path: /xrayws
       headers:
-        Connection:
-          - keep-alive
+        Host: it.eazyconqueror.tk
 proxy-groups:
   - name: gameTLS
     type: url-test
@@ -64,7 +63,7 @@ proxy-groups:
     interval: 50
     tolerance: 30
     proxies:
-      - ssr1
+      - "ws"
 rules:
   - DST-PORT,9030,gameTLS
   - DST-PORT,9031,gameTLS
@@ -103,8 +102,8 @@ rules:
   - IP-CIDR,129.226.2.165/24,gameTLS
   - IP-CIDR,172.16.0.1/24,gameTLS
   - IP-CIDR,137.208.72.137/24,gameTLS
-  - IP-CIDR,162.0.0.0/8,ssr3
-  - IP-CIDR,49.0.0.0/8,ssr3
-  - IP-CIDR,20.0.0.0/8,ssr3
+  - IP-CIDR,162.0.0.0/8,gameTLS
+  - IP-CIDR,49.0.0.0/8,gameTLS
+  - IP-CIDR,20.0.0.0/8,gameTLS
   - GEOIP,CN,gameTLS
   - MATCH,DIRECT
