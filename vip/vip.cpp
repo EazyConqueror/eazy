@@ -6,9 +6,6 @@ proxies:
     uuid: 190fb4f5-1772-4d55-8064-a538df25eb8b
     alterId: 0
     cipher: auto
-    udp: true
-    #tls: true
-    #skip-cert-verify: true
     network: ws
     ws-opts:
       path: /xrayws
