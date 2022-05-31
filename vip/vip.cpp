@@ -1,26 +1,19 @@
 proxies:
-  - name: "ws"
+  - name: ws
     type: vmess
-    server: it.eazyconqueror.tk
-    port: 95
-    uuid: 190fb4f5-1772-4d55-8064-a538df25eb8b
+    server: it1.vpnjantit.com
+    port: 10000
+    uuid: 3dba3982-e032-11ec-9127-7fc9160b2d45
     alterId: 0
     cipher: auto
     udp: true
     #tls: true
-    #skip-cert-verify: true
+    skip-cert-verify: true
     network: ws
     ws-opts:
-      path: /xrayws
-      headers:
-        Host: it.eazyconqueror.tk
-  - name: ss
-    type: ss
-    server: 35.152.59.94
-    port: 30867
-    cipher: chacha20-ietf-poly1305
-    password: lVWuFZDDyjHi
-    udp: true
+      path: /vpnjantit
+      #headers:
+        #Host: it1.vpnjantit.com
 proxy-groups:
   - name: gameTLS
     type: url-test
@@ -31,11 +24,11 @@ proxy-groups:
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 rules:
-  - DST-PORT,9030,ss
-  - DST-PORT,9031,ss
-  - DST-PORT,20000,ss
-  - DST-PORT,20001,ss
-  - DST-PORT,20002,ss
+  - DST-PORT,9030,gameTLS
+  - DST-PORT,9031,gameTLS
+  - DST-PORT,20000,gameTLS
+  - DST-PORT,20001,gameTLS
+  - DST-PORT,20002,gameTLS
   - DOMAIN,www.pubgmobile.com,gameTLS
   - DOMAIN,dl.listdl.com,gameTLS
   - DOMAIN,crl3.digicert.com,gameTLS
@@ -54,7 +47,7 @@ rules:
   - DOMAIN-SUFFIX,adjust.com,gameTLS
   - DOMAIN-SUFFIX,amsoveasea.com,gameTLS
   - DOMAIN-SUFFIX,gcloudsdk.com,gameTLS
-  - DOMAIN-SUFFIX,gjacky.com,DIRECT
+  - DOMAIN-SUFFIX,gjacky.com,gameTLS
   - DOMAIN-SUFFIX,anticheatexpert.com,gameTLS
   - DOMAIN-SUFFIX,onezapp.com,gameTLS
   - DOMAIN-SUFFIX,qcloud.com,gameTLS
