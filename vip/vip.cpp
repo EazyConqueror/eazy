@@ -3,7 +3,7 @@ proxies:
     type: vmess
     server: it1.vpnjantit.com
     port: 10000
-    uuid: 2ec29792-f308-11ec-8a4d-2350260d01bd
+    uuid: e75896e4-f9fc-11ec-9a72-ff258ca8711d
     alterId: 0
     cipher: auto
     #udp: true
