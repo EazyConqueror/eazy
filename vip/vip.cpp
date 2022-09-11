@@ -36,4 +36,4 @@ rules:
   - DOMAIN-SUFFIX,dl.castle.freefiremobile.com,gameTLS
   - DOMAIN-SUFFIX,ff.garena.com,gameTLS
   - DOMAIN-SUFFIX,garena.com,gameTLS
-  - MATCH,gameTLS
+  - MATCH,DIRECT
