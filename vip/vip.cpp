@@ -2,27 +2,25 @@ proxies:
   - name: ws
     type: vmess
     server: it1.vpnjantit.com
-    port: 10000
+    port: 10001
     uuid: 64f80246-31c6-11ed-8208-6340be144b72
     alterId: 0
     cipher: auto
-    #udp: true
-    #tls: true
+    udp: true
+    tls: true
     skip-cert-verify: true
     network: ws
     ws-opts:
       path: /vpnjantit
-      #headers:
-        #Host: it1.vpnjantit.com
+      headers:
+        Host: it1.vpnjantit.com
 proxy-groups:
   - name: gameTLS
     type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 300
     proxies:
       - ws
-    tolerance: 150
-    lazy: true
-    url: 'http://www.gstatic.com/generate_204'
-    interval: 300
 rules:
   - DOMAIN-SUFFIX,version.common.freefiremobile.com,gameTLS
   - DOMAIN-SUFFIX,csoversea.castle.freefiremobile.com,gameTLS
