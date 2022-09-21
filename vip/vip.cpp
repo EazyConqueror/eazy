@@ -1,9 +1,9 @@
 proxies:
   - name: ws
     type: vmess
-    server: sg.vmess1.xservs.xyz
+    server: id.vmess1.xservs.xyz
     port: 80
-    uuid: 3f9eccf6-04ba-425d-aa6a-bcedc0d01962
+    uuid: c6e0810b-740e-4f75-a392-1c9c38304cd8
     alterId: 0
     cipher: auto
     #udp: true
