@@ -1,9 +1,9 @@
 proxies:
   - name: ws
     type: vmess
-    server: id.vmess1.xservs.xyz
-    port: 80
-    uuid: c6e0810b-740e-4f75-a392-1c9c38304cd8
+    server: us1.socifiles.com
+    port: 443
+    uuid: 55ee66a0-f2d7-11ee-a591-1239d0255272
     alterId: 0
     cipher: auto
     #udp: true
@@ -11,7 +11,7 @@ proxies:
     skip-cert-verify: true
     network: ws
     ws-opts:
-      path: /vmess
+      path: /vmws
       headers:
         Host: google.com
 proxy-groups:
