@@ -1,13 +1,13 @@
 proxies:
   - name: ws
     type: vmess
-    server: sau1.vpnjantit.com
-    port: 10001
-    uuid: c32bdd24-f362-11ee-947a-525401b3cc30
+    server: ae4.vpnjantit.com
+    port: 80
+    uuid: 222bcff0-8e09-11ef-a9be-03bd2314dc6d
     alterId: 0
     cipher: auto
     #udp: true
-    tls: true
+    tls: false
     skip-cert-verify: true
     network: ws
     ws-opts:
